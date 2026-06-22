@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于世界杯 · 站点小记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(145deg, #fbe9d7 0%, #f3d5b5 60%, #eac8a6 100%);
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2.8rem 1.2rem;
+      line-height: 1.7;
+      color: #2f2a24;
+    }
+    .card {
+      max-width: 750px;
+      width: 100%;
+      background: #fffcf8;
+      border-radius: 36px;
+      box-shadow: 0 20px 40px -12px rgba(80, 50, 30, 0.18), 0 8px 20px rgba(0,0,0,0.02);
+      padding: 2.8rem 2.6rem 3.2rem;
+      transition: box-shadow 0.2s ease;
+    }
+    @media (max-width: 540px) {
+      body { padding: 1.5rem 0.8rem; }
+      .card { padding: 2rem 1.5rem 2.4rem; border-radius: 28px; }
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 620;
+      letter-spacing: -0.02em;
+      color: #3d2e1f;
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+    .subhead {
+      font-size: 1rem;
+      color: #7b6b58;
+      border-left: 4px solid #dbb68c;
+      padding-left: 1rem;
+      margin: 0.4rem 0 2rem;
+      font-weight: 380;
+    }
+    .intro {
+      font-size: 1.12rem;
+      background: #faf3eb;
+      padding: 1rem 1.4rem;
+      border-radius: 48px 20px 20px 48px;
+      margin-bottom: 2rem;
+      display: inline-block;
+    }
+    p {
+      margin-bottom: 1.35rem;
+    }
+    p a {
+      color: #b2652a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid rgba(178, 101, 42, 0.25);
+      padding-bottom: 0.05rem;
+      transition: border-color 0.2s, color 0.15s;
+      border-radius: 4px;
+    }
+    p a:hover {
+      color: #8f4f1e;
+      border-bottom-color: #b2652a;
+      background: rgba(178, 101, 42, 0.04);
+    }
+    .blockquote-wrap {
+      margin: 2rem 0 1.8rem;
+      background: #f6ede4;
+      padding: 1.6rem 2rem;
+      border-radius: 28px;
+      position: relative;
+    }
+    .blockquote-wrap::before {
+      content: "“";
+      font-size: 4rem;
+      line-height: 1;
+      color: #dbb68c;
+      position: absolute;
+      left: 0.8rem;
+      top: -0.4rem;
+      font-family: Georgia, serif;
+      opacity: 0.5;
+    }
+    .blockquote-wrap p {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #4d3c2b;
+      margin-bottom: 0.3rem;
+    }
+    .blockquote-wrap cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #8e7a64;
+      text-align: right;
+      font-style: normal;
+    }
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      margin: 1.8rem 0;
+    }
+    .feature-item {
+      background: #f7f0e9;
+      padding: 0.9rem 1.3rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      color: #3d3024;
+      flex: 1 0 auto;
+      border: 1px solid #e8d9cb;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .faq-summary {
+      margin: 2.4rem 0 1.2rem;
+      border-top: 2px dashed #e2d1be;
+      padding-top: 1.8rem;
+    }
+    .faq-summary h2 {
+      font-size: 1.2rem;
+      font-weight: 560;
+      color: #3d2c1b;
+      margin-bottom: 1rem;
+    }
+    .faq-row {
+      display: flex;
+      gap: 0.6rem 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+      font-size: 0.98rem;
+    }
+    .faq-q {
+      font-weight: 520;
+      color: #5f4a34;
+      min-width: 5rem;
+    }
+    .faq-a {
+      color: #4a3b2b;
+    }
+    .access-note {
+      background: #eddfd1;
+      border-radius: 100px;
+      padding: 0.8rem 1.6rem;
+      display: inline-block;
+      font-size: 0.95rem;
+      margin: 1.2rem 0 0.2rem;
+      color: #3a2b1d;
+    }
+    .footer-note {
+      margin-top: 2.8rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e4d3c1;
+      font-size: 0.9rem;
+      color: #7a6855;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>关于世界杯 · 一个小站</h1>
+    <div class="subhead">站点介绍 · 可信说明 · 日常视角</div>
+
+    <div class="intro">📬 这里不是官方，只是一处安静整理信息的地方。</div>
+
+    <p>
+      说起 <strong>世界杯</strong>，每个人脑海里都会浮现出不同的画面——欢呼、汗水、草坪上的奔跑，或者深夜和朋友们围坐在一起的时刻。这个站点最初的想法很简单：把关于<a href="https://china-zh-worldcup.com">世界杯</a>的资讯、历史片段和观赛点滴，用更贴合中文读者习惯的方式归拢起来。没有铺天盖地的广告，也没有博眼球的标题，只想做一块干净、好读的角落。
+    </p>
+
+    <p>
+      站内内容主要来自公开可信的赛事资料、媒体报道与个人整理，每一条信息都尽量标注出处或保持可查证。如果你留意到任何偏差，欢迎通过站点留言提醒——毕竟我们都不是机器，细节需要一起打磨。
+    </p>
+
+    <div class="blockquote-wrap">
+      <p>足球是圆的，但信息应该尽量方正。</p>
+      <cite>—— 站点编辑手记</cite>
+    </div>
+
+    <p>
+      从赛程日历到经典对阵，从冷门知识到球迷文化，这里不追求面面俱到，但求每一篇都言之有物。你可以把这里当成一个可以随时翻翻的小册子，不需要注册，也不需要担心被算法推着走。
+    </p>
+
+    <div class="feature-grid">
+      <span class="feature-item">📅 赛程与结果整理</span>
+      <span class="feature-item">🏆 历届冠军与数据</span>
+      <span class="feature-item">📖 规则演变简史</span>
+      <span class="feature-item">🌏 各大洲预选赛动态</span>
+      <span class="feature-item">🎙️ 观赛随笔 & 看点</span>
+    </div>
+
+    <p>
+      我们并不想做一个大而全的门户，那太累，也太容易失真。反而更希望这里像一本可以随手翻的笔记本：今天写写某届比赛的趣闻，明天整理一下参赛队的变化。如果你也恰好对<a href="https://china-zh-worldcup.com">世界杯</a>有兴趣，欢迎随时来逛，哪怕只看一小段也好。
+    </p>
+
+    <div class="faq-summary">
+      <h2>❓ 你可能想问</h2>
+      <div class="faq-row">
+        <span class="faq-q">数据可靠吗？</span>
+        <span class="faq-a">主要参考 FIFA 官方记录、主流通讯社及赛事报告，每篇尽量列明来源。</span>
+      </div>
+      <div class="faq-row">
+        <span class="faq-q">会更新吗？</span>
+        <span class="faq-a">不定期更新，重大赛事期间会更频繁。不追热点，但求踏实。</span>
+      </div>
+      <div class="faq-row">
+        <span class="faq-q">有互动吗？</span>
+        <span class="faq-a">页面底部有联系入口，欢迎友善交流或指正错漏。</span>
+      </div>
+    </div>
+
+    <div class="access-note">
+      🗺️ 直接前往 <a href="https://china-zh-worldcup.com" style="border-bottom: 1.5px solid #b2652a; color: #8f4f1e; font-weight: 500;">世界杯</a> · 主站
+    </div>
+
+    <p style="margin-top: 1.4rem;">
+      最后想说，足球是无数人的共同记忆，而站点只是记忆的一个容器。感谢你读到这里，也期待你在浏览中找到属于自己的那届<a href="https://china-zh-worldcup.com">世界杯</a>片段。
+    </p>
+
+    <div class="footer-note">
+      © 记录 · 关于世界杯 · 非官方 · 内容仅供参考
+    </div>
+  </div>
+</body>
+</html>
