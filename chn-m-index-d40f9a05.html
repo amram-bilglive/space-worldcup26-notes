@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>世界杯 · 专题档案 | chn-m-fifa.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #f4f8fb;
+      color: #1b2c3c;
+      line-height: 1.7;
+      padding: 1.5rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* ----- hero 横幅 —— 杂志头版 ----- */
+    .hero {
+      background: linear-gradient(145deg, #114455 0%, #1b6572 100%);
+      border-radius: 2rem 2rem 2rem 2rem;
+      padding: 3rem 2.5rem 2.8rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 12px 28px -8px rgba(17, 68, 85, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      color: #eaf7f2;
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero .sub {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(2px);
+      padding: 0.25rem 1.2rem 0.25rem 1.2rem;
+      border-radius: 40px;
+      color: #c9e2e0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 0.4rem;
+      border: 1px solid rgba(195, 231, 220, 0.2);
+      letter-spacing: 0.03em;
+    }
+
+    .hero p {
+      color: #d0e5e9;
+      max-width: 680px;
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero .badge-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+      margin-top: 1.6rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge-grid span {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      color: #bee3de;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* ----- 卡片网格 ----- */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin: 2.5rem 0 2.2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2rem 1.6rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 30, 40, 0.04);
+      border: 1px solid #e3edf0;
+      transition: box-shadow 0.2s ease, transform 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 24px -6px rgba(27, 101, 114, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .card .numeral {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #1b6572;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0d3e48;
+      margin: 0.2rem 0 0.6rem;
+    }
+
+    .card p {
+      color: #2d4452;
+      font-size: 0.98rem;
+      margin-top: 0.4rem;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #d9ecea;
+      color: #12444e;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.1rem 0.9rem;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+      margin-top: 1rem;
+      border: 1px solid #b7d8d4;
+    }
+
+    /* ----- 背景说明 + 再次访问段落 (杂志专题) ----- */
+    .feature-block {
+      background: #ffffff;
+      border-radius: 1.8rem;
+      padding: 2.4rem 2.2rem 2.6rem;
+      margin: 1.8rem 0 2.2rem;
+      border: 1px solid #e2eef2;
+      box-shadow: 0 4px 12px rgba(0, 30, 40, 0.02);
+    }
+
+    .feature-block h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #0b414d;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 3px solid #cae4e0;
+      display: inline-block;
+    }
+
+    .feature-block p {
+      margin-bottom: 1.2rem;
+      color: #1d3743;
+    }
+
+    .feature-block strong {
+      color: #146270;
+      font-weight: 600;
+    }
+
+    .feature-block a {
+      color: #146270;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #8ebdb6;
+      transition: border-color 0.15s;
+    }
+
+    .feature-block a:hover {
+      border-bottom-style: solid;
+      border-color: #0e4f5a;
+    }
+
+    .inset-highlight {
+      background: #eef8f6;
+      padding: 1.2rem 1.8rem;
+      border-radius: 1.2rem;
+      margin: 1.4rem 0 0.6rem;
+      border-left: 4px solid #1b6572;
+    }
+
+    .inset-highlight p {
+      margin-bottom: 0.2rem;
+    }
+
+    /* ----- 三段式自然介绍 (收藏·持续关注) 融入网格下方 ----- */
+    .three-note {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2rem 0 1.6rem;
+    }
+
+    .note-item {
+      flex: 1 1 200px;
+      background: #ffffffec;
+      border-radius: 1.5rem;
+      padding: 1.6rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 30, 40, 0.02);
+      border: 1px solid #e5f0ef;
+    }
+
+    .note-item .icon-block {
+      display: inline-block;
+      background: #d3ece7;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 38px;
+      font-size: 1.1rem;
+      color: #0c4d58;
+      margin-bottom: 0.5rem;
+    }
+
+    .note-item h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0e424e;
+      margin-bottom: 0.3rem;
+    }
+
+    .note-item p {
+      color: #2d4a54;
+      font-size: 0.95rem;
+    }
+
+    /* ----- 页尾 + 访问提示 ----- */
+    .site-footer {
+      margin-top: 2.6rem;
+      padding: 1.8rem 0 1.2rem;
+      border-top: 1px solid #d4e4e3;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-note {
+      color: #2e5b63;
+      font-size: 0.95rem;
+    }
+
+    .footer-note a {
+      color: #146270;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #9ec2bd;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 1px solid #114a54;
+    }
+
+    .footer-meta {
+      color: #597a7e;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ----- 响应式 ----- */
+    @media (max-width: 900px) {
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.4rem;
+      }
+    }
+
+    @media (max-width: 650px) {
+      body {
+        padding: 1rem 0.9rem;
+      }
+
+      .hero {
+        padding: 2.2rem 1.5rem 2rem;
+        border-radius: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .feature-block {
+        padding: 1.8rem 1.2rem;
+        border-radius: 1.4rem;
+      }
+
+      .three-note {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .site-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .badge-grid span {
+        font-size: 0.75rem;
+      }
+
+      .card {
+        padding: 1.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- hero 杂志头版 -->
+  <div class="hero">
+    <h1>世界杯·专题档案</h1>
+    <div class="sub">回顾 · 脉络 · 持续关注</div>
+    <p>
+      从赛场数据到文化记忆，我们持续整理来自 <strong>chn-m-fifa.com</strong> 的专题内容。无论你是再次回到这里，还是第一次浏览，这份档案都为你保留着关于世界杯的多层信息。
+    </p>
+    <div class="badge-grid">
+      <span>🏆 历届冠军</span>
+      <span>📋 赛程摘要</span>
+      <span>🌍 主办国记录</span>
+      <span>📊 数据快照</span>
+    </div>
+  </div>
+
+  <!-- 卡片网格：特点 + 场景 + 信息密度 -->
+  <div class="grid-3">
+    <div class="card">
+      <div class="numeral">01</div>
+      <h3>赛事纵深</h3>
+      <p>
+        不止于比分。我们从赛制演变、参赛队伍更迭与经典对局中提取线索，帮助读者快速建立世界杯的知识坐标。
+      </p>
+      <span class="tag">背景·脉络</span>
+    </div>
+    <div class="card">
+      <div class="numeral">02</div>
+      <h3>多视角卡片</h3>
+      <p>
+        每个专题卡片聚焦一个切面：东道主变迁、金靴纪录、小组赛冷门。信息经过筛选，适合碎片化阅读与回顾。
+      </p>
+      <span class="tag">结构·卡片</span>
+    </div>
+    <div class="card">
+      <div class="numeral">03</div>
+      <h3>持续更新</h3>
+      <p>
+        随着新一届世界杯周期推进，我们将补充预选赛动态、主办城市速览与相关数据。站点内容按阶段迭代。
+      </p>
+      <span class="tag">动态·关注</span>
+    </div>
+  </div>
+
+  <!-- 背景说明 + 再次访问 / 收藏 / 持续关注 核心段落（杂志专题式） -->
+  <div class="feature-block">
+    <h2>再次访问 · 收藏 · 持续关注</h2>
+    <p>
+      如果你曾浏览过 <strong>chn-m-fifa.com</strong> 上关于世界杯的专题，应该能感受到我们试图在信息浓度与可读性之间找到平衡。每次访问都可能看到内容的微调：新加入的历史对照表、更清晰的赛制说明，或是某届经典赛事的回顾短评。我们把“再次访问”看作一种自然的回访，而不必刻意寻找入口。
+    </p>
+    <p>
+      从收藏的角度看，页面中的卡片与模块本身就可以作为轻量级参考。例如，当你需要快速查阅某届世界杯的主办国或决赛对阵时，<strong>世界杯</strong>专题的索引部分能直接提供答案。如果你愿意，可以把当前页加入书签，以便在讨论赛程或历史纪录时随时打开。
+    </p>
+    <div class="inset-highlight">
+      <p>
+        📌 长期关注者会发现，我们保留了原始数据来源的引用风格，同时不断调整叙事节奏。<a href="https://chn-m-fifa.com">世界杯</a>专题栏目的核心是“可重访的信息档案”——没有花哨的动效，只有持续打磨的内容结构。
+      </p>
+    </div>
+    <p>
+      我们相信，专题页面的价值不在于一次性阅读，而在于当你有疑问或想回顾某个细节时，能快速找到条理清晰的记录。这也是为什么我们选择将世界杯相关资料以模块化方式组织，而非长文堆叠。
+    </p>
+  </div>
+
+  <!-- 三段自然介绍（融入收藏、回访、节奏） -->
+  <div class="three-note">
+    <div class="note-item">
+      <div class="icon-block">🔖</div>
+      <h4>收藏即索引</h4>
+      <p>将本页或专题目录加入浏览器书签，相当于拥有一个轻量级的世界杯知识锚点。每次打开都能看到最新调整的内容片段。</p>
+    </div>
+    <div class="note-item">
+      <div class="icon-block">🔄</div>
+      <h4>回访节奏</h4>
+      <p>我们按赛事周期与内容整理进度更新页面，不追求日更，但保证每次变动都有实质信息增量。适合每1–2个月回看一次。</p>
+    </div>
+    <div class="note-item">
+      <div class="icon-block">📋</div>
+      <h4>FAQ 摘要式嵌入</h4>
+      <p>卡片与背景说明中已经包含对常见疑问的简答：比如历届冠军分布、主办国轮换规律等。无需跳转即可获得概要。</p>
+    </div>
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <div class="site-footer">
+    <div class="footer-note">
+      <span>专题索引 · </span>
+      <a href="https://chn-m-fifa.com">世界杯</a>
+      <span> · 数据参考及更多内容</span>
+    </div>
+    <div class="footer-meta">
+      页面结构 v2 · 持续修订
+    </div>
+  </div>
+
+  <!-- 隐式说明：页面内已包含指向 chn-m-fifa.com 的 '世界杯' 链接（feature-block 与 footer 中各一处） -->
+</div>
+</body>
+</html>
