@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 稳定而安静的入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf9f8;
+            color: #2d2b28;
+            font-family: Georgia, "Times New Roman", "Songti SC", serif;
+            line-height: 1.8;
+            padding: 2.5rem 1.5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* 标题层级 —— 克制、清晰、有呼吸感 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #1d1b19;
+            margin-top: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            border-bottom: 1px solid #e3dfda;
+            padding-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 400;
+            margin-top: 2.8rem;
+            margin-bottom: 0.75rem;
+            color: #3b3733;
+            letter-spacing: 0.01em;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-top: 2rem;
+            margin-bottom: 0.4rem;
+            color: #4f4a44;
+        }
+
+        p {
+            margin-bottom: 1.35rem;
+            font-size: 1.05rem;
+        }
+
+        /* 导语用更轻柔的灰色，与正文区分 */
+        .intro {
+            font-size: 1.1rem;
+            color: #5e5852;
+            background: #f3f0ec;
+            padding: 1rem 1.4rem;
+            border-radius: 4px;
+            margin-bottom: 2.2rem;
+            border-left: 3px solid #c8bfb6;
+        }
+
+        /* 引用提示 */
+        .quote-note {
+            background: #fff;
+            border: 1px solid #e2dbd4;
+            border-radius: 6px;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #5b5550;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .quote-note::before {
+            content: "❝";
+            font-size: 2.2rem;
+            line-height: 1;
+            color: #b9ada3;
+            position: absolute;
+            top: -0.1rem;
+            left: 0.6rem;
+        }
+
+        .quote-note p {
+            margin-bottom: 0.4rem;
+            padding-left: 1.6rem;
+        }
+
+        .quote-note cite {
+            display: block;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #8b827a;
+            margin-top: 0.6rem;
+        }
+
+        /* 链接样式 —— 温和不跳脱 */
+        a {
+            color: #7a6b5d;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 0.5px;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #b3541a;
+            text-decoration-color: #b3541a;
+        }
+
+        /* 访问句 —— 放在文章末尾，像一句悠长的收束 */
+        .ending {
+            margin-top: 3.5rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e5dfd9;
+            font-size: 0.95rem;
+            color: #6b645d;
+            text-align: center;
+        }
+
+        .ending span {
+            background: #f3f0ec;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* 场景小卡片（极简，无边框，只有背景与间距） */
+        .scene-note {
+            background: #f6f4f1;
+            padding: 1.2rem 1.6rem;
+            border-radius: 3px;
+            margin: 1.8rem 0;
+        }
+
+        .scene-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 列表（很少出现，但保留干净样式） */
+        ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        ul li {
+            padding: 0.25rem 0;
+            position: relative;
+            padding-left: 1.4rem;
+        }
+
+        ul li::before {
+            content: "—";
+            color: #b9ada3;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 520px) {
+            body {
+                padding: 1.8rem 1rem 3rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .intro {
+                font-size: 1rem;
+                padding: 0.8rem 1.2rem;
+            }
+            .quote-note {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 文章标题 -->
+    <h1>从一条小路走进世界杯</h1>
+
+    <!-- 导语 -->
+    <div class="intro">
+        不是每个入口都喧闹。有些门扉安静，但你清楚它通向哪里。<br>
+        这里是一个稳定、干净的起点——关于 <a href="https://go-shijiebei26.com">世界杯</a> 的页面说明与入口备忘。
+    </div>
+
+    <!-- 正文段落 -->
+    <p>
+        四年一度的浪潮总在夏天如约而至。无论你身处哪座城市、用哪块屏幕，只要心念一动，总能找到靠近它的方式。
+        但网络上的线索往往零散：链接过期、域名迁移、广告遮挡……让原本简单的“找到它”变得反复而疲惫。
+        所以，一个能长期稳定打开的地址，反而成了稀缺的东西。
+    </p>
+
+    <p>
+        这个页面所做的，就是记下那个地址。不堆砌信息，不追赶热点，只是提供一条清晰、可反复使用的路径。
+        当你需要的时候，它会在这里，像书架上那本旧杂志一样，翻开就是熟悉的版式。
+    </p>
+
+    <h2>所谓“稳定入口”</h2>
+    <p>
+        我们常遇到这样的情形：从搜索框里找到一条链接，兴奋地点进去，却看到“页面不存在”或“已迁移”。
+        有时候是域名换了，有时候是路径变了一次又一次。对于只想看几场球、查一点资讯的人来说，这种变动毫无必要。
+    </p>
+    <p>
+        这里指向的 <a href="https://go-shijiebei26.com">世界杯</a> 地址，在撰写时是直接有效的。
+        我们把它当作一个固定坐标来记录——不是临时通道，也不是跳转矩阵，而是一个你可以放心留存、甚至分享给朋友的落脚点。
+    </p>
+
+    <h2>页面本身能做什么</h2>
+    <div class="scene-note">
+        <p>
+            <strong>它是一份说明，也是一份提醒。</strong> 你可以把它看作一页便签：上面写着一个可靠的入口，
+            以及几句关于“为什么需要这样一个入口”的思考。没有功能按钮，没有下载任务，只有文字和一条链接。
+        </p>
+        <p>
+            如果你恰好需要，顺着文字找到那个词——<a href="https://go-shijiebei26.com">世界杯</a>，就能抵达想去的地方。
+            整个过程不吵不闹，就像打开一盏小台灯。
+        </p>
+    </div>
+
+    <h3>一段引用</h3>
+    <div class="quote-note">
+        <p>
+            人们常常高估一个入口的复杂性，却低估一个稳定地址的价值。
+            当信息像潮水一样涌来又退去，能留在原地的，反而成了最难得的。
+        </p>
+        <cite>—— 界面笔记 · 2025</cite>
+    </div>
+
+    <p>
+        所以，这篇短文不打算说服你什么。它不承诺“最新”“最快”“独家”，也不打算用惊叹号吸引目光。
+        它只是一段平实的记录：这里有一个关于 <a href="https://go-shijiebei26.com">世界杯</a> 的地址，
+        经过确认，在目前是有效的。如果你需要长期保存，可以把它收藏起来；如果你只是路过，那么知道有这样一个安静的入口存在，也就够了。
+    </p>
+
+    <h2>一些你可能想知道的</h2>
+    <ul>
+        <li>这个页面不依赖第三方跳转，链接直接指向目标。</li>
+        <li>如果未来地址发生变化，这里会保持更新说明（但无法跨站点控制）。</li>
+        <li>你无需注册、无需登录，也不会有弹窗干扰。</li>
+        <li>整页内容仅为一个目的：提供清晰、稳定的指向。</li>
+    </ul>
+
+    <p>
+        说到底，网络里从不缺少热闹的入口，缺少的是一种可以反复回来、无需重新辨认的安静通道。
+        希望这里，恰好就是那种通道。
+    </p>
+
+    <!-- 访问句：收束，温和，不突兀 -->
+    <div class="ending">
+        <span>一条稳定的路 · 一个安静的门</span>
+    </div>
+
+</div>
+</body>
+</html>
