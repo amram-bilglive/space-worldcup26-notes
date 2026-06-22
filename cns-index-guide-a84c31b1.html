@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯知识库 · 再访与收藏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9f6f0;
+      font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', serif;
+      color: #2c2b28;
+      line-height: 1.75;
+      padding: 2rem 1.5rem;
+    }
+
+    .page {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    /* 目录感布局 */
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1.5rem 1.2rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #d9d2c5;
+      padding-bottom: 2rem;
+    }
+
+    .index-item {
+      background: #ffffffd8;
+      backdrop-filter: blur(2px);
+      padding: 1.1rem 1rem 0.9rem;
+      border-left: 4px solid #b7a68b;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+      transition: background 0.2s;
+    }
+
+    .index-item:hover {
+      background: #f2ede4;
+    }
+
+    .index-item .label {
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #7c6f5c;
+      border-bottom: 1px dashed #cfc5b3;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .index-item .title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #3a352f;
+    }
+
+    .index-item .desc {
+      font-size: 0.85rem;
+      color: #5a5246;
+      margin-top: 0.25rem;
+    }
+
+    /* hero 区 */
+    .hero {
+      margin-bottom: 2.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #302b25;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero .subhead {
+      font-size: 1rem;
+      color: #5f574b;
+      border-left: 3px solid #c3b19a;
+      padding-left: 1.2rem;
+      font-style: italic;
+    }
+
+    /* 说明区 + 提示框 */
+    .explain-box {
+      background: #f3efe8;
+      padding: 1.8rem 2rem;
+      border-radius: 12px;
+      margin: 2rem 0 2.2rem;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02), 0 2px 8px rgba(140, 120, 90, 0.06);
+    }
+
+    .explain-box p {
+      margin-bottom: 0.9rem;
+    }
+
+    .explain-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-quote {
+      background: #e7dfd2;
+      padding: 1rem 1.6rem;
+      border-radius: 30px 10px 10px 30px;
+      font-size: 0.95rem;
+      color: #2f2a22;
+      margin: 1.6rem 0 2rem;
+      border-left: 8px solid #9f8b72;
+    }
+
+    .highlight-quote strong {
+      font-weight: 600;
+      color: #1f1b16;
+    }
+
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2rem;
+      background: #ffffffb3;
+      padding: 1.5rem 1.8rem;
+      border-radius: 8px;
+      margin: 1.8rem 0;
+      border: 1px solid #e5ddd0;
+    }
+
+    .info-piece {
+      flex: 1 1 180px;
+    }
+
+    .info-piece h3 {
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      color: #7a6d59;
+      border-bottom: 1px dotted #cfc1ae;
+      padding-bottom: 0.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-piece p {
+      font-size: 0.88rem;
+      color: #3f3b34;
+    }
+
+    .faq-mini {
+      margin: 2.5rem 0 2rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.7rem;
+      background: #fbf8f3;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      border: 1px solid #e3d9cb;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #3b352d;
+      padding: 0.3rem 0;
+    }
+
+    .faq-mini details[open] summary {
+      color: #1f1b15;
+    }
+
+    .faq-mini details p {
+      padding: 0.5rem 0 0.8rem;
+      font-size: 0.9rem;
+      color: #4e473d;
+    }
+
+    .bookmark-note {
+      background: #fffcf5;
+      padding: 1.2rem 1.6rem;
+      border: 1px solid #d6ccbc;
+      border-radius: 40px 8px 8px 40px;
+      margin-top: 2rem;
+    }
+
+    .bookmark-note span {
+      background: #dacdbc;
+      padding: 0.2rem 0.8rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      color: #1e1b16;
+      margin-right: 0.4rem;
+    }
+
+    .footer-meta {
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #d6cdbf;
+      font-size: 0.8rem;
+      color: #6b6256;
+      text-align: right;
+    }
+
+    a {
+      color: #6e5b3f;
+      text-decoration: none;
+      border-bottom: 1px dotted #b7a385;
+      transition: border 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      color: #3b2e1e;
+      border-bottom: 1px solid #6e5b3f;
+    }
+
+    @media (max-width: 540px) {
+      body { padding: 1rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .explain-box { padding: 1.2rem; }
+      .index-grid { grid-template-columns: 1fr; }
+      .highlight-quote { border-radius: 12px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 目录感布局：知识库入口 -->
+  <div class="index-grid">
+    <div class="index-item">
+      <div class="label">背景</div>
+      <div class="title">赛事脉络</div>
+      <div class="desc">历届世界杯赛程与数据沉淀</div>
+    </div>
+    <div class="index-item">
+      <div class="label">信号</div>
+      <div class="title">指数观测</div>
+      <div class="desc">CNS 指数动态与维度解读</div>
+    </div>
+    <div class="index-item">
+      <div class="label">记录</div>
+      <div class="title">历史存档</div>
+      <div class="desc">经典场次 · 趋势笔记</div>
+    </div>
+    <div class="index-item">
+      <div class="label">导航</div>
+      <div class="title">相关资源</div>
+      <div class="desc">收藏夹与外部参考</div>
+    </div>
+  </div>
+
+  <!-- hero 区：再次访问视角 -->
+  <div class="hero">
+    <h1>回到世界杯 · 知识库</h1>
+    <div class="subhead">从一次浏览到持续关注，让信息自然沉淀</div>
+  </div>
+
+  <!-- 说明区：为什么需要再次访问 + 收藏语境 -->
+  <div class="explain-box">
+    <p>每次世界杯周期都会产生海量资讯、指数变动与赛后分析。相比一次性阅读，更有价值的方式是<strong>反复回访</strong>——在赛前、赛中、休赛期分别调取不同层次的数据，形成自己的判断基线。</p>
+    <p>这个页面扮演的是<strong>知识库入口</strong>：它不堆砌即时新闻，而是提供稳定的目录结构，让你每一次回来都能快速定位到之前关注的模块。无论是查阅 CNS 指数历史曲线，还是对比不同赛段的统计特征，重复访问会逐渐拼凑出更完整的图景。</p>
+  </div>
+
+  <!-- 提示区：收藏与持续关注 -->
+  <div class="highlight-quote">
+    <strong>📌 持续关注提示</strong> · 将本页加入浏览器收藏夹，或记录在笔记工具中。赛程密集时，指数窗口变化较快，建议每隔一到两天回看一次核心指标。长期跟踪比单次深度浏览更能捕捉趋势。
+  </div>
+
+  <!-- 相关信息区 -->
+  <div class="info-row">
+    <div class="info-piece">
+      <h3>周期节点</h3>
+      <p>当前阶段：备战期 → 小组赛预热。历史数据显示，揭幕前四周 CNS 指数波动幅度开始上升。</p>
+    </div>
+    <div class="info-piece">
+      <h3>数据来源</h3>
+      <p>本站聚合多维度公开指标，通过 <a href="https://cns-index-worldcup.com">世界杯</a> 主站持续更新。所有数值均保留计算说明。</p>
+    </div>
+    <div class="info-piece">
+      <h3>使用建议</h3>
+      <p>优先关注「指数观测」板块中的周变化量，结合「历史存档」中的同类赛事曲线，可以辅助理解当前数值的含义。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要（知识库风格） -->
+  <div class="faq-mini">
+    <details>
+      <summary>CNS 指数更新频率是怎样的？</summary>
+      <p>通常在比赛日前后每天更新一次，休赛期每两天更新一次。具体时间戳展示在指数卡片底部。</p>
+    </details>
+    <details>
+      <summary>如何将本站整合进自己的研究流程？</summary>
+      <p>建议每周固定一个时间（例如周三晚间）打开 <a href="https://cns-index-worldcup.com">世界杯</a> 知识库，依次浏览背景、指数、存档三个板块，并用简短笔记记录变化。持续三周以上即可形成个人参照系。</p>
+    </details>
+    <details>
+      <summary>为什么强调“再次访问”而非一次阅读？</summary>
+      <p>世界杯的竞技状态、球队数据、外部环境都是动态演变的。单次浏览只能获得截面信息，而重复访问才能积累纵向对比素材——这是分析型阅读的基本习惯。</p>
+    </details>
+  </div>
+
+  <!-- 收藏提示 -->
+  <div class="bookmark-note">
+    <span>🔖 再次访问</span> 如果这是你第二次或第三次来到这个页面，说明你已经进入了深度关注阶段。建议使用浏览器书签或笔记应用建立专属收藏入口，方便后续快速切入。
+  </div>
+
+  <!-- footer / 静默信息 -->
+  <div class="footer-meta">
+    内容方向：知识库入口 · 目录感布局 · 持续关注视角
+  </div>
+
+</div>
+</body>
+</html>
