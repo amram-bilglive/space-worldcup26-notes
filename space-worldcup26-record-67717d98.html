@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 空间站 26</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f3f8f7;
+            color: #1d2b2a;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 主视觉——网格卡 */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-card {
+            background: linear-gradient(145deg, #d9f0ec 0%, #c0e3dd 100%);
+            border-radius: 2.4rem;
+            padding: 2.4rem 1.8rem;
+            box-shadow: 0 12px 28px -8px rgba(29, 70, 66, 0.18);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 36px -12px rgba(29, 70, 66, 0.25);
+        }
+
+        .hero-card h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #054a44;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-card p {
+            font-size: 1.1rem;
+            color: #1a3f3b;
+            max-width: 600px;
+        }
+
+        .badge-pill {
+            display: inline-block;
+            background: #0b6b62;
+            color: white;
+            border-radius: 100px;
+            padding: 0.2rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        /* 卡片通用 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.6rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border-radius: 1.8rem;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+            border: 1px solid #d7e8e4;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .info-card:hover {
+            background: #fafffe;
+            border-color: #2b9c8f;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #0c5c54;
+        }
+
+        .info-card p, .info-card li {
+            color: #2a4340;
+            font-size: 1rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card ul li {
+            padding: 0.25rem 0 0.25rem 1.4rem;
+            position: relative;
+        }
+
+        .info-card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #2b9c8f;
+            font-weight: 600;
+        }
+
+        .icon-em {
+            font-size: 1.8rem;
+            display: inline-block;
+            margin-bottom: 0.4rem;
+        }
+
+        /* 段落双列 */
+        .double-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2.4rem 0 3rem;
+        }
+
+        .text-block {
+            background: #ffffff;
+            border-radius: 1.6rem;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            border: 1px solid #d7e8e4;
+        }
+
+        .text-block h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #054a44;
+            margin-bottom: 0.6rem;
+        }
+
+        .text-block p {
+            margin-bottom: 1rem;
+        }
+
+        .link-natural {
+            color: #117a6f;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #bfddd6;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        .link-natural:hover {
+            color: #054a44;
+            border-bottom-color: #054a44;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #e8f3f0;
+            border-radius: 1.8rem;
+            padding: 2rem 1.8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 2rem;
+            margin: 2.8rem 0 2rem;
+        }
+
+        .faq-item {
+            padding: 0.4rem 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #054a44;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item span {
+            color: #2d5250;
+            font-size: 0.95rem;
+        }
+
+        .btn-soft {
+            display: inline-block;
+            background: #ffffff;
+            border: 1px solid #2b9c8f;
+            color: #0c5c54;
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .btn-soft:hover {
+            background: #2b9c8f;
+            color: white;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #5a7e79;
+            border-top: 1px solid #d0e3df;
+            padding-top: 2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body {
+                padding: 1.4rem 1rem;
+            }
+            .hero-card h1 {
+                font-size: 1.8rem;
+            }
+            .double-col {
+                grid-template-columns: 1fr;
+            }
+            .faq-mini {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-card:first-child {
+                grid-column: span 2;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 主视觉区域 -->
+    <div class="hero-grid">
+        <div class="hero-card">
+            <span class="badge-pill">✦ 收藏 · 再访</span>
+            <h1>世界杯<br>空间站 26</h1>
+            <p>一次遇见，常常回来。把感兴趣的赛事、记忆片段和未来看点，收进你的专属角落。</p>
+        </div>
+        <div class="hero-card" style="background: linear-gradient(145deg, #c6e6df, #b1dad2);">
+            <div style="display: flex; flex-direction: column; height: 100%; justify-content: center;">
+                <p style="font-weight: 500; font-size: 1.1rem; margin-bottom: 0.3rem;">📌 再次返回的理由</p>
+                <p style="font-size: 0.95rem; opacity: 0.9;">每次访问都可能发现新的内容排列、更新片段或视角变化。保持关注，不必追赶。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用途卡片网格 -->
+    <div class="card-grid">
+        <div class="info-card">
+            <div class="icon-em">📋</div>
+            <h3>个人收藏夹</h3>
+            <p>把印象深刻的比赛、队伍故事或精彩瞬间用标签整理，后续回来翻看时更容易找到熟悉的片段。</p>
+        </div>
+        <div class="info-card">
+            <div class="icon-em">🔁</div>
+            <h3>持续订阅</h3>
+            <p>不定期更新内容方向和推荐视角，适合长期关注、慢慢浏览。不用每天查看，但每次都有新收获。</p>
+        </div>
+        <div class="info-card">
+            <div class="icon-em">🧩</div>
+            <h3>碎片拼图</h3>
+            <p>不同角度的信息卡片、数据简史、氛围记录……像拼图一样组合出你对世界杯的理解。</p>
+        </div>
+    </div>
+
+    <!-- 双列：人群 + 链接段落 -->
+    <div class="double-col">
+        <div class="text-block">
+            <h2>👥 适合哪些人</h2>
+            <p>平时偶尔看球、喜欢球队文化、或对赛事背后的数字与故事感兴趣的人，都能在这里找到轻松阅读的入口。不要求专业背景，只看你是否愿意多留意几眼。</p>
+            <p>如果你已经收藏过这个页面，再次回来时会发现内容结构可能已经悄悄变化——这也是我们刻意保持的节奏。</p>
+        </div>
+        <div class="text-block">
+            <h2>🔗 从一句话开始</h2>
+            <p>很多人第一次接触赛事内容，是从朋友分享的一个链接开始的。这里同样可以成为你存放关注的地方。</p>
+            <p>比如，你可以把 <a href="https://space-worldcup26.com" class="link-natural">世界杯</a> 当作一个长期书签，隔段时间回来看一眼，不用特意规划时间。</p>
+            <p>每次返回，页面布局和推荐焦点都可能不同，但核心信息始终保持真实可读。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <strong>❓ 为什么再次访问值得？</strong>
+            <span>内容会随阶段调整，卡片组合、推荐顺序和细节注释都会变化，每次回看都有新鲜感。</span>
+        </div>
+        <div class="faq-item">
+            <strong>❓ 页面会频繁变动吗？</strong>
+            <span>不会。周期较长，不追求日更，但结构会定期迭代，让常客感受到用心。</span>
+        </div>
+        <div class="faq-item">
+            <strong>❓ 收藏后怎么找回来？</strong>
+            <span>浏览器书签、手机主屏幕快捷方式、或笔记应用里存下链接，都是好办法。</span>
+        </div>
+        <div class="faq-item">
+            <strong>❓ 适合用手机看吗？</strong>
+            <span>完全适配。卡片和文字在移动端自动调整，单手阅读无压力。</span>
+        </div>
+    </div>
+
+    <!-- 提示条 -->
+    <div style="background: #d7ece6; border-radius: 2rem; padding: 1.2rem 1.8rem; margin: 2rem 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+        <p style="margin: 0.4rem 0; color: #054a44; font-weight: 500;">📎 把这里加入书签，下次回来不用重新找。</p>
+        <a href="https://space-worldcup26.com" class="btn-soft" style="margin-left: 0.5rem;">世界杯</a>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <p>内容保持自然更新 · 收藏比记忆更可靠</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">页面方向 · 信息卡片式 · 背景 #4a3619ae98a00e3a</p>
+    </div>
+
+</div>
+</body>
+</html>
